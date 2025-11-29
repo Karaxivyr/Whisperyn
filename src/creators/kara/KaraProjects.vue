@@ -1,35 +1,37 @@
 <template>
-  <section class="kara-projects-section reveal">
-    <h2 class="label">WORK</h2>
+  <section id="kara-work" class="kara-projects-section reveal">
+    <h2 class="kara-projects__label">Work</h2>
 
-    <div class="project-grid">
-      <!-- Placeholder card while we build GitHub integration -->
-      <div class="project-card pulse">
+    <div class="kara-projects__grid">
+      <!-- Placeholder card to be replaced with live GitHub data later -->
+      <article class="kara-project-card kara-project-card--placeholder">
         <h3>Coming Soon</h3>
         <p>
           Repository highlights, pinned projects, and open-source systems will
-          appear here.
+          appear here. This grid is designed for live GitHub data.
         </p>
-      </div>
+      </article>
     </div>
   </section>
 </template>
 
+<script setup></script>
+
 <style scoped lang="scss">
 .kara-projects-section {
-  padding: 0 2rem;
+  padding: 0 2.4rem 1.2rem;
 }
 
-.label {
+.kara-projects__label {
   text-align: center;
   text-transform: uppercase;
-  color: #b0b0b0;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  color: #b4bdc9;
   margin-bottom: 1.5rem;
 }
 
-.project-grid {
+.kara-projects__grid {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -37,28 +39,49 @@
   gap: 1.5rem;
 }
 
-.project-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 14px;
+.kara-project-card {
+  border-radius: 16px;
   padding: 1.8rem;
-  transition: 0.3s ease;
+  background: radial-gradient(
+      circle at top left,
+      rgba(143, 212, 210, 0.08),
+      transparent 70%
+    ),
+    rgba(19, 22, 27, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), 0 0 22px rgba(143, 212, 210, 0.09);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, opacity 0.24s ease;
 }
 
-.project-card:hover {
+.kara-project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 28px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.85),
+    0 0 32px rgba(143, 212, 210, 0.16);
+  opacity: 1;
 }
 
-/* subtle, existential floating animation */
-.pulse {
-  animation: pulseAnim 6s ease-in-out infinite alternate;
+.kara-project-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  color: #e7ecf3;
 }
 
-@keyframes pulseAnim {
+.kara-project-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #c2cad5;
+  line-height: 1.7;
+}
+
+/* subtle float animation */
+.kara-project-card--placeholder {
+  animation: karaFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes karaFloat {
   0% {
-    transform: translateY(0px);
-    opacity: 0.9;
+    transform: translateY(0);
+    opacity: 0.95;
   }
   100% {
     transform: translateY(-8px);

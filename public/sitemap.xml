@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- Home -->
+  <url>
+    <loc>https://whisperyn.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Kara -->
+  <url>
+    <loc>https://whisperyn.com/kara</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- 404 fallback (optional, helps Google understand SPA routing) -->
+  <url>
+    <loc>https://whisperyn.com/404</loc>
+    <priority>0.1</priority>
+  </url>
+</urlset>

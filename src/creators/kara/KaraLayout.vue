@@ -1,88 +1,85 @@
 <template>
   <div class="kara-site">
-    <!-- Animated procedural background -->
+    <!-- Smooth Background Layers -->
     <div class="kara-grid"></div>
     <div class="kara-noise"></div>
     <div class="kara-light"></div>
+    <div class="kara-circuit"></div>
 
-    <!-- Page structure -->
     <KaraHeader />
+
     <main class="kara-main">
       <KaraHero />
       <KaraAbout />
       <KaraProjects />
     </main>
+
     <KaraFooter />
   </div>
 </template>
 
 <script setup>
+import { onMounted, onBeforeUnmount } from "vue";
+
+/* Components */
 import KaraHeader from "./KaraHeader.vue";
 import KaraFooter from "./KaraFooter.vue";
 import KaraHero from "./KaraHero.vue";
 import KaraAbout from "./KaraAbout.vue";
 import KaraProjects from "./KaraProjects.vue";
 
-// Cursor-reactive ambient lighting
-window.addEventListener("mousemove", (e) => {
-  document.documentElement.style.setProperty("--x", `${e.clientX}px`);
-  document.documentElement.style.setProperty("--y", `${e.clientY}px`);
+/* Import global animation SCSS */
+import "./karaBackground.scss";
+
+/* Smooth cursor reactive lighting */
+let cx = 0;
+let cy = 0;
+
+const listener = (e) => {
+  cx = e.clientX;
+  cy = e.clientY;
+
+  document.documentElement.style.setProperty("--kara-x", `${cx}px`);
+  document.documentElement.style.setProperty("--kara-y", `${cy}px`);
+};
+
+onMounted(() => {
+  window.addEventListener("mousemove", listener);
+
+  /* Generate Random Circuit */
+  const container = document.querySelector(".kara-circuit");
+  if (container) {
+    for (let i = 0; i < 22; i++) {
+      const n = document.createElement("div");
+      n.className = "circuit-node";
+      n.style.top = `${Math.random() * 100}%`;
+      n.style.left = `${Math.random() * 100}%`;
+      n.style.animationDelay = `${Math.random() * 6}s`;
+      container.appendChild(n);
+    }
+    for (let i = 0; i < 12; i++) {
+      const l = document.createElement("div");
+      l.className = "circuit-line";
+      l.style.top = `${Math.random() * 100}%`;
+      l.style.left = `${Math.random() * 100}%`;
+      l.style.width = `${40 + Math.random() * 160}px`;
+      l.style.animationDelay = `${Math.random() * 6}s`;
+      container.appendChild(l);
+    }
+  }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("mousemove", listener);
 });
 </script>
 
 <style scoped lang="scss">
 .kara-site {
-  background: #0d0d0d;
-  color: #e4e4e4;
-  position: relative;
+  background: #0b0d10;
+  color: #e3e7ec;
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-/* === FRACTAL CYBER GRID === */
-.kara-grid {
-  position: fixed;
-  inset: 0;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 42px 42px;
-  opacity: 0.16;
-  animation: gridShift 38s linear infinite;
-}
-@keyframes gridShift {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-120px, -120px);
-  }
-}
-
-/* === NOISE OVERLAY === */
-.kara-noise {
-  position: fixed;
-  inset: 0;
-  opacity: 0.05;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-}
-
-/* === AMBIENT CURSOR LIGHT === */
-.kara-light {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at var(--x, 50%) var(--y, 40%),
-    rgba(255, 255, 255, 0.08),
-    transparent 60%
-  );
-  mix-blend-mode: overlay;
-  transition: background-position 0.12s linear;
 }
 
 .kara-main {
@@ -90,18 +87,22 @@ window.addEventListener("mousemove", (e) => {
   flex-direction: column;
   gap: 4rem;
   padding-bottom: 4rem;
-  position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
-/* REVEAL ANIMATION */
+/* SMOOTH REVEAL */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  animation: revealUp 1s ease forwards;
+  transform: translateY(28px);
+  animation: karaReveal 1s cubic-bezier(0.21, 0.55, 0.16, 1) forwards;
 }
-@keyframes revealUp {
-  to {
+
+@keyframes karaReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
