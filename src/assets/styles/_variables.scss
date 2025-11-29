@@ -1,0 +1,48 @@
+// Shadows & radii
+$shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.68);
+$radius-xl: 24px;
+
+// --------------------------------------
+// Responsive breakpoints
+// --------------------------------------
+//
+// Mobile:       phones, narrow viewports
+// Small:        tablets / small laptops
+// Desktop:      standard 1080p-ish displays
+// 4K:           large / ultra-wide setups
+//
+
+$bp-mobile: 480px;
+$bp-small: 768px;
+$bp-desktop: 1280px;
+$bp-4k: 2560px;
+
+// Legacy aliases (existing components using $bp-sm, $bp-md, $bp-lg)
+$bp-sm: $bp-small;
+$bp-md: $bp-desktop;
+$bp-lg: $bp-4k;
+
+// --------------------------------------
+// Helper mixins
+// --------------------------------------
+
+// Min-width media query
+@mixin up-from($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Max-width media query
+@mixin down-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Range-based query
+@mixin between($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
