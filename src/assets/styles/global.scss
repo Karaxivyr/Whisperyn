@@ -1,3 +1,5 @@
+@use "@/assets/styles/dividers";
+
 :root {
   --color-bg: #020714;
   --color-surface: rgba(4, 14, 30, 0.9);
@@ -23,7 +25,8 @@ body,
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;

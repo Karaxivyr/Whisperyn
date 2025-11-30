@@ -1,0 +1,93 @@
+/* ============================================================
+   WHISPERYN — AETHER CREST DIVIDER (ENHANCED)
+   Elegant | Dimensional | Soft-Cyber Glow | Crest Pulse
+   ============================================================ */
+
+.divider-aether-crest {
+  position: relative;
+  width: 100%;
+  margin: 1rem 0rem;
+
+  /* A faint background grain adds depth */
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 70%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015) 0,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 2px
+    );
+  background-size: cover;
+  background-position: center;
+}
+
+/* The line across */
+.divider-aether-crest::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    rgba(120, 255, 240, 0.35),
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+
+  filter: drop-shadow(0 0 4px rgba(120, 255, 240, 0.25));
+}
+
+/* Center crest */
+.divider-aether-crest::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 38px;
+  height: 38px;
+
+  background-image: url("@/assets/images/logos/whisperyn-trispire-transparent-512.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  opacity: 0.85;
+
+  /* stacked glows give depth */
+  filter: drop-shadow(0 0 4px rgba(90, 255, 230, 0.3))
+    drop-shadow(0 0 10px rgba(80, 200, 255, 0.35))
+    drop-shadow(0 0 18px rgba(80, 200, 255, 0.15));
+
+  animation: crestPulse 4.5s ease-in-out infinite;
+}
+
+/* Pulse + holographic shimmer */
+@keyframes crestPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.85;
+  }
+  45% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.085);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(120, 255, 240, 0.45))
+      drop-shadow(0 0 14px rgba(80, 200, 255, 0.4))
+      drop-shadow(0 0 24px rgba(80, 200, 255, 0.22));
+  }
+  55% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 0.95;
+  }
+}

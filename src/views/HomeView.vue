@@ -48,14 +48,13 @@
           </p>
         </div>
       </section>
-
+      <div class="divider-aether-crest"></div>
       <!-- ================================ -->
       <!-- FOUNDATIONS (WITH ART PANELS)   -->
       <!-- ================================ -->
-      <section class="foundations">
+      <section id="foundations" class="foundations">
         <div class="foundations__container">
           <h2 class="section-title">Foundations</h2>
-
           <div class="foundations__grid">
             <!-- Respect -->
             <article class="foundation-card reveal">
@@ -81,7 +80,6 @@
                 </p>
               </div>
             </article>
-
             <!-- Integrity -->
             <article class="foundation-card reveal">
               <div class="foundation-card__art">
@@ -106,7 +104,6 @@
                 </p>
               </div>
             </article>
-
             <!-- Dignity -->
             <article class="foundation-card reveal">
               <div class="foundation-card__art">
@@ -134,7 +131,7 @@
           </div>
         </div>
       </section>
-
+      <div class="divider-aether-crest"></div>
       <!-- ================================ -->
       <!-- CREATORS                        -->
       <!-- ================================ -->
@@ -201,6 +198,7 @@ onMounted(() => {
   reveal(document.querySelector(".foundations__grid"));
   reveal(document.querySelector(".creators__grid"));
 });
+
 // BACKGROUND IMAGE
 import forest from "../assets/images/backgrounds/whisperyn-forest-cyber-4096-1920w.webp";
 import karaLogo from "../creators/kara/assets/logos/kara-logo-1024w-1024w.webp";
