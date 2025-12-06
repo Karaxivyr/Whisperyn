@@ -48,13 +48,12 @@
           </p>
         </div>
       </section>
-      <div class="divider-aether-crest"></div>
       <!-- ================================ -->
       <!-- FOUNDATIONS (WITH ART PANELS)   -->
       <!-- ================================ -->
       <section id="foundations" class="foundations">
         <div class="foundations__container">
-          <h2 class="section-title">Foundations</h2>
+          <h2 class="section-title section-shelf">Foundations</h2>
           <div class="foundations__grid">
             <!-- Respect -->
             <article class="foundation-card reveal">
@@ -131,13 +130,12 @@
           </div>
         </div>
       </section>
-      <div class="divider-aether-crest"></div>
       <!-- ================================ -->
       <!-- CREATORS                        -->
       <!-- ================================ -->
       <section id="creators" class="creators">
         <div class="creators__container">
-          <h2 class="section-title">Creators</h2>
+          <h2 class="section-title section-shelf">Creators</h2>
 
           <div class="creators__grid">
             <RouterLink

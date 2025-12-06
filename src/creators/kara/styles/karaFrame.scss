@@ -1,0 +1,18 @@
+/* ----------------------------------------------------
+   Kara Frame — Real Texture Background
+----------------------------------------------------- */
+
+body.karaFrame {
+  background-image: url("@/creators/kara/assets/images/kara-background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #eef0f1;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.02em;
+
+  padding-top: 80px;
+  padding-bottom: 80px;
+}

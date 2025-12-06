@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import CreatorKara from "@/views/creators/CreatorKara.vue";
+import CreatorKara from "@/creators/kara/CreatorKara.vue";
 
 const routes = [
   {

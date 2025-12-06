@@ -1,0 +1,102 @@
+/* ----------------------------------------------------
+   Kara — Token Sheet (Final Unified System)
+   Matches: kara-background.webp
+   Style: Modern • Minimal • Soft-Slate • Teal Glow
+----------------------------------------------------- */
+
+/* ============================
+   BASE GRAYS + SURFACES
+   (Extracted / matched from background)
+=============================== */
+
+/* Deep charcoal slate (background base) */
+$color-bg: #131a21;
+
+/* Elevated slate panel (text-friendly) */
+$color-surface: #1a222a;
+
+/* Card / glass surface */
+$color-card: #202a33;
+
+/* Extra-slate (used in geometric overlays) */
+$color-slate-boost: #24313c;
+
+/* ============================
+   TEXT COLORS
+=============================== */
+
+$color-text-primary: #f0f2f4;
+$color-text-secondary: #aab0b4;
+$color-text-muted: #7c8287;
+
+/* Legacy compatibility */
+$text-primary: $color-text-primary;
+$text-secondary: $color-text-secondary;
+$text-muted: $color-text-muted;
+
+/* ============================
+   ACCENTS
+   (Teal spectral glow)
+=============================== */
+
+$color-accent: #3cf2ec;
+$color-accent-soft: #7ffdf7;
+
+/* ============================
+   BORDERS
+=============================== */
+
+$color-border: rgba(255, 255, 255, 0.1);
+
+/* ============================
+   EFFECTS — GLASS + GLOW
+=============================== */
+
+/* Used in Hero glass overlay + card glass */
+$glass-bg: rgba(20, 26, 32, 0.55);
+$glass-strong: rgba(20, 26, 32, 0.72);
+
+/* Teal glow for titles */
+$glow-accent-1: rgba($color-accent, 0.45);
+$glow-accent-2: rgba($color-accent-soft, 0.22);
+
+/* ============================
+   RADIUS + DEPTH
+=============================== */
+
+$radius-card: 16px;
+$radius-panel: 22px;
+
+$shadow-soft: 0 6px 16px rgba(0, 0, 0, 0.22);
+$shadow-medium: 0 12px 22px rgba(0, 0, 0, 0.35);
+$shadow-hard: 0 18px 36px rgba(0, 0, 0, 0.45);
+
+/* ============================
+   BACKGROUND GRADIENT SYSTEM
+   (brightened + atmospheric)
+=============================== */
+
+$kara-bg-gradient: linear-gradient(
+  to bottom,
+  #233544 0%,
+  // bright teal-slate haze
+  #1a252e 45%,
+  // mid-tone atmospheric slate
+  #131a21 100% // biomech charcoal
+);
+
+/* Subtle ambient light for top region */
+$ambient-light: radial-gradient(
+  circle at 50% 20%,
+  rgba(82, 255, 247, 0.18),
+  rgba(0, 0, 0, 0) 80%
+);
+
+/* ============================
+   CLIP-PATH GEOMETRY TOKENS
+   (Ensures site-wide consistency)
+=============================== */
+
+$geom-angle-sm: polygon(0% 4%, 100% 0%, 100% 100%, 0% 100%);
+$geom-angle-md: polygon(0% 5%, 100% 0%, 100% 100%, 0% 100%);
+$geom-angle-lg: polygon(0 0, 100% 6%, 100% 100%, 0% 100%);
